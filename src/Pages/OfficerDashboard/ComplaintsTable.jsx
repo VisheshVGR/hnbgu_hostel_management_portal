@@ -14,7 +14,7 @@ import Paper from '@mui/material/Paper';
 import Popper from '@mui/material/Popper';
 
 
-const ComplaintsTable = ({ currUser, myinfo }) => {
+const ComplaintsTable = ({ currUser, myinfo, notify }) => {
     const [myComplaints, setMyComplaints] = useState([])
     const [filteredComplaints, setFilteredComplaints] = useState([])
     const [tabPage, setTabPage] = useState('1');
@@ -109,7 +109,7 @@ const ComplaintsTable = ({ currUser, myinfo }) => {
                 // console.log("param", params.row)
                 return (
                     <>
-                        <ComplaintInfo complaintData={params.row} myinfo={myinfo} />
+                        <ComplaintInfo complaintData={params.row} myinfo={myinfo} notify={notify} />
                     </>
                 )
 

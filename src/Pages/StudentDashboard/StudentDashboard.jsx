@@ -51,13 +51,13 @@ const StudentDashboard = ({ currUser, notify }) => {
     return (
         <>
             <Paper elevation={0} sx={{ my: 3, p: 3 }}>
-                <MyInfo currUser={currUser} myinfo={myinfo} />
+                <MyInfo currUser={currUser} myinfo={myinfo}/>
             </Paper>
             <Paper elevation={6} sx={{ my: 3, p: 3 }}>
-                <NewComplaintForm currUser={currUser} myinfo={myinfo} />
+                <NewComplaintForm currUser={currUser} myinfo={myinfo} notify={notify}/>
             </Paper>
             <Paper elevation={6} sx={{ my: 3, p: 3 }}>
-                <MyComplaints currUser={currUser} myinfo={myinfo} />
+                <MyComplaints currUser={currUser} myinfo={myinfo} notify={notify}/>
             </Paper>
         </>
     )

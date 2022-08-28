@@ -16,7 +16,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import EditIcon from '@mui/icons-material/Edit';
 
-export default function ResponsiveDialog({ currUser }) {
+export default function ResponsiveDialog({ currUser, notify }) {
     const [open, setOpen] = React.useState(false);
     const theme = useTheme();
     const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
@@ -70,19 +70,19 @@ export default function ResponsiveDialog({ currUser }) {
 
                         <Typography variant="h6" component="p" sx={{ marginY: 2 }}>Change Account Type -</Typography>
                         <Box sx={{ display: "flex", flexFlow: "row wrap", alignItems: "center", justifyContent: "center", gap: 3 }}>
-                            <Button variant="outlined" color="success" onClick={async () => await updateDoc(complainRef, { accountType: "Student" })}>
+                            <Button variant="outlined" color="success" onClick={async () => { await updateDoc(complainRef, { accountType: "Student" }); notify("Account Type Changed!", "info") }}>
                                 Student
                             </Button>
-                            <Button variant="outlined" color="warning" onClick={async () => await updateDoc(complainRef, { accountType: "Caretaker" })}>
+                            <Button variant="outlined" color="warning" onClick={async () => { await updateDoc(complainRef, { accountType: "Caretaker" }); notify("Account Type Changed!", "info") }}>
                                 Caretaker
                             </Button>
-                            <Button variant="outlined" color="warning" onClick={async () => await updateDoc(complainRef, { accountType: "Warden" })}>
+                            <Button variant="outlined" color="warning" onClick={async () => { await updateDoc(complainRef, { accountType: "Warden" }); notify("Account Type Changed!", "info") }}>
                                 Warden
                             </Button>
-                            <Button variant="outlined" color="warning" onClick={async () => await updateDoc(complainRef, { accountType: "Chief Warden" })}>
+                            <Button variant="outlined" color="warning" onClick={async () => { await updateDoc(complainRef, { accountType: "Chief Warden" }); notify("Account Type Changed!", "info") }}>
                                 Chief Warden
                             </Button>
-                            <Button variant="outlined" color="error" onClick={async () => await updateDoc(complainRef, { accountType: "Admin" })}>
+                            <Button variant="outlined" color="error" onClick={async () => { await updateDoc(complainRef, { accountType: "Admin" }); notify("Account Type Changed!", "info") }}>
                                 Admin
                             </Button>
                         </Box>

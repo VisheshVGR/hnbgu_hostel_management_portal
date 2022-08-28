@@ -15,7 +15,7 @@ import { Typography } from "@mui/material";
 
 
 
-const NewComplaintForm = ({ currUser, myinfo }) => {
+const NewComplaintForm = ({ currUser, myinfo, notify }) => {
     const [error, setError] = useState("")
     const [complaintInfo, setComplaintInfo] = useState({
         complaintType: "",
@@ -47,6 +47,8 @@ const NewComplaintForm = ({ currUser, myinfo }) => {
                 complaintType: "",
                 complaintDescription: "",
             })
+            notify("Complain Registered", "success")
+
         }
         catch (error) {
             setError(error.code.substring(error.code.indexOf('/') + 1).replaceAll("-", " "))
@@ -66,6 +68,16 @@ const NewComplaintForm = ({ currUser, myinfo }) => {
             setError("Describe the Issue.");
             return;
         }
+
+        if (myinfo.name === "" ||
+            myinfo.hostelName === "" ||
+            myinfo.phoneNo === "" ||
+            myinfo.email === "" ||
+            myinfo.roomNo === "") {
+            notify("Complete Your Profile First", "warning")
+            return
+        }
+
         registerComplaint()
     }
     return (

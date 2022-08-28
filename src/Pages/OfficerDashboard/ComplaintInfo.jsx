@@ -16,7 +16,7 @@ import TextField from '@mui/material/TextField';
 import { doc, updateDoc } from "firebase/firestore";
 import { db } from "../../Firebase/firebaseConfig"
 
-export default function ResponsiveDialog({ complaintData, myinfo }) {
+export default function ResponsiveDialog({ complaintData, myinfo, notify }) {
     const [open, setOpen] = React.useState(false);
     const [remarks, setRemarks] = React.useState(complaintData.remarks ? complaintData.remarks : "");
     const theme = useTheme();
@@ -84,16 +84,16 @@ export default function ResponsiveDialog({ complaintData, myinfo }) {
 
                         <Typography variant="h6" component="p" sx={{ marginY: 2 }}>Select response -</Typography>
                         <Box sx={{ display: "flex", flexFlow: "row wrap", alignItems: "center", justifyContent: "center", gap: 3 }}>
-                            <Button variant="outlined" color="success" onClick={async () => await updateDoc(complainRef, { complaintStatus: "approved" })}>
+                            <Button variant="outlined" color="success" onClick={async () => { await updateDoc(complainRef, { complaintStatus: "approved" }); notify("Complain Status Updated!", "info") }}>
                                 Resolved
                             </Button>
-                            <Button variant="outlined" color="warning" onClick={async () => await updateDoc(complainRef, { complaintStatus: "pending" })}>
+                            <Button variant="outlined" color="warning" onClick={async () => { await updateDoc(complainRef, { complaintStatus: "pending" }); notify("Complain Status Updated!", "info") }}>
                                 Pending
                             </Button>
                             {
                                 myinfo.accountType === "Caretaker" ?
                                     <>
-                                        <Button variant="outlined" color="secondary" onClick={async () => await updateDoc(complainRef, { issuedTo: "Warden" })}>
+                                        <Button variant="outlined" color="secondary" onClick={async () => { await updateDoc(complainRef, { issuedTo: "Warden" }); notify("Complain promoted to Warden!", "success") }}>
                                             Esclate
                                         </Button>
                                     </> : <></>
@@ -101,13 +101,13 @@ export default function ResponsiveDialog({ complaintData, myinfo }) {
                             {
                                 myinfo.accountType === "Warden" ?
                                     <>
-                                        <Button variant="outlined" color="secondary" onClick={async () => await updateDoc(complainRef, { issuedTo: "Chief Warden" })}>
+                                        <Button variant="outlined" color="secondary" onClick={async () => { await updateDoc(complainRef, { issuedTo: "Chief Warden" }); notify("Complain promoted to Chief Warden!", "success") }}>
                                             Esclate
                                         </Button>
                                     </> : <></>
                             }
 
-                            <Button variant="outlined" color="error" onClick={async () => await updateDoc(complainRef, { complaintStatus: "declined" })}>
+                            <Button variant="outlined" color="error" onClick={async () => { await updateDoc(complainRef, { complaintStatus: "declined" }); notify("Complain Status Updated!", "info") }}>
                                 Decline
                             </Button>
                         </Box>
@@ -121,7 +121,7 @@ export default function ResponsiveDialog({ complaintData, myinfo }) {
                             value={remarks}
                             onChange={(e) => setRemarks(e.target.value)}
                         />
-                        <Button variant="contained" color="success" onClick={async () => await updateDoc(complainRef, { remarks: remarks })}>
+                        <Button variant="contained" color="success" onClick={async () => {await updateDoc(complainRef, { remarks: remarks }); notify("Remarks saved!", "info")}}>
                             Save Remarks
                         </Button>
 

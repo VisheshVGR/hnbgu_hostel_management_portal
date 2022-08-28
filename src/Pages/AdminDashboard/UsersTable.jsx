@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { db } from "../../Firebase/firebaseConfig"
-import {  collection, query, onSnapshot } from "firebase/firestore";
+import { collection, query, onSnapshot } from "firebase/firestore";
 import { DataGrid, GridToolbar } from '@mui/x-data-grid';
 
 import UsersTableInfo from "./UsersTableInfo"
@@ -14,7 +14,7 @@ import Paper from '@mui/material/Paper';
 import Popper from '@mui/material/Popper';
 
 
-const UsersTable = ({ currUser, myinfo }) => {
+const UsersTable = ({ currUser, myinfo, notify }) => {
     const [allUsers, setAllUsers] = useState([])
     const [filteredUsers, setFilteredUsers] = useState([])
     const [tabPage, setTabPage] = useState('1');
@@ -103,7 +103,7 @@ const UsersTable = ({ currUser, myinfo }) => {
             renderCell: (params) => {
                 return (
                     <>
-                        <UsersTableInfo currUser={params.row} />
+                        <UsersTableInfo currUser={params.row} notify={notify} />
                     </>
                 )
 

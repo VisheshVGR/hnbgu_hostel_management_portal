@@ -23,7 +23,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import Select from '@mui/material/Select';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-const Signup = ({ currUser }) => {
+const Signup = ({ currUser, notify }) => {
     const navigate = useNavigate()
     const theme = createTheme();
 
@@ -76,6 +76,7 @@ const Signup = ({ currUser }) => {
                 });
             console.log(res);
             console.log('Signed Up Successfully !');
+            notify("Signed Up Successfully !", "success")
             navigate("/studentDashboard")
 
         } catch (error) {

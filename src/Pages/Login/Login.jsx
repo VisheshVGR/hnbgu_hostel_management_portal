@@ -15,8 +15,9 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import LoginIcon from '@mui/icons-material/Login';
 
-const Login = ({currUser}) => {
+const Login = ({ currUser, notify }) => {
     const navigate = useNavigate()
     const theme = createTheme();
 
@@ -26,12 +27,12 @@ const Login = ({currUser}) => {
         password: "",
     })
 
-    useEffect(()=>{
-        if(currUser){
+    useEffect(() => {
+        if (currUser) {
             navigate("/studentDashboard")
             return
-        }   
-    },[currUser, navigate])
+        }
+    }, [currUser, navigate])
 
     useEffect(() => {
         setError("")
@@ -52,7 +53,7 @@ const Login = ({currUser}) => {
         try {
 
             await sendPasswordResetEmail(auth, userData.email)
-            alert("Password reset email sent!")
+            notify("Password reset email sent!", "info")
         }
         catch (error) {
             setError(error.code.substring(error.code.indexOf('/') + 1).replaceAll("-", " "))
@@ -142,7 +143,7 @@ const Login = ({currUser}) => {
                                 variant="contained"
                                 sx={{ mt: 3, mb: 2 }}
                             >
-                                Sign In
+                                <LoginIcon sx={{ marginEnd: 2 }} />Sign In
                             </Button>
                             <Grid container>
                                 <Grid item xs>

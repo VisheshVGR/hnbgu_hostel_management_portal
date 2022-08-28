@@ -16,7 +16,7 @@ import Paper from '@mui/material/Paper';
 import Popper from '@mui/material/Popper';
 
 
-const MyComplaints = ({ currUser, myinfo }) => {
+const MyComplaints = ({ currUser, myinfo,notify }) => {
     const [myComplaints, setMyComplaints] = useState([])
     const [filteredComplaints, setFilteredComplaints] = useState([])
     const [tabPage, setTabPage] = useState('1');
@@ -77,6 +77,7 @@ const MyComplaints = ({ currUser, myinfo }) => {
 
     const deleteData = async (data) => {
         await deleteDoc(doc(db, `hnbgu_hostel_management_portal_complaints`, data.key));
+        notify("Complain Deleted", "success")
     }
 
     const columns = [

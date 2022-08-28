@@ -54,7 +54,7 @@ const AdminDashboard = ({ currUser, notify }) => {
                 <MyInfo currUser={currUser} myinfo={myinfo} />
             </Paper>
             <Paper elevation={6} sx={{ my: 3, p: 3 }}>
-                <UsersTable currUser={currUser} myinfo={myinfo} />
+                <UsersTable currUser={currUser} myinfo={myinfo} notify={notify} />
             </Paper>
         </>
     )

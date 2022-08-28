@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom";
-import {  collection, query, onSnapshot, where } from "firebase/firestore";
+import { collection, query, onSnapshot, where } from "firebase/firestore";
 import { db } from "../../Firebase/firebaseConfig"
 
 
@@ -54,7 +54,7 @@ const OfficerDashboard = ({ currUser, notify }) => {
                 <MyInfo currUser={currUser} myinfo={myinfo} />
             </Paper>
             <Paper elevation={6} sx={{ my: 3, p: 3 }}>
-                <ComplaintsTable currUser={currUser} myinfo={myinfo} />
+                <ComplaintsTable currUser={currUser} myinfo={myinfo} notify={notify} />
             </Paper>
         </>
     )
