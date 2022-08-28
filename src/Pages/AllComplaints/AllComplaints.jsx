@@ -1,10 +1,15 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
+import { Paper } from "@mui/material"
+
+import ComplaintsTable from "./ComplaintsTable"
 
 const AllComplaints = () => {
 
     return (
         <>
-            This is AllComplaints Page
+            <Paper elevation={6} sx={{ my: 3, p: 3 }}>
+                <ComplaintsTable />
+            </Paper>
         </>
     )
 }

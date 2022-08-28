@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../Firebase/firebaseConfig"
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../../Firebase/firebaseConfig"
 
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -14,6 +16,11 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import InputAdornment from '@mui/material/InputAdornment';
+import Select from '@mui/material/Select';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const Signup = ({ currUser }) => {
@@ -22,11 +29,13 @@ const Signup = ({ currUser }) => {
 
     const [error, setError] = useState("")
     const [userData, setUserData] = useState({
-        firstName: "",
-        lastName: "",
+        name: "",
+        phoneNo: "",
         email: "",
         password: "",
         confirmPassword: "",
+        hostelName: "",
+        roomNo: "",
     })
 
     useEffect(() => {
@@ -44,27 +53,46 @@ const Signup = ({ currUser }) => {
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, userData.email, userData.password)
             await updateProfile(userCredential.user, {
-                displayName: `${userData.firstName}${userData.lastName ? ` ${userData.lastName}` : ``}`,
+                displayName: userData.name,
             })
+
+            // console.log(auth)
+            // console.log(userCredential.user.uid)
+            const newUserData = {
+                uid: userCredential.user.uid,
+                // Student | Caretaker | Warden | Chief Warden | Admin
+                accountType: "Student",
+                name: userData.name,
+                phoneNo: userData.phoneNo,
+                email: userData.email,
+                hostelName: userData.hostelName,
+                roomNo: userData.roomNo,
+            }
+            console.log(newUserData)
+
+            const res = await addDoc(collection(db, "hnbgu_hostel_management_portal_users"),
+                {
+                    ...newUserData
+                });
+            console.log(res);
             console.log('Signed Up Successfully !');
             navigate("/studentDashboard")
-            // console.log(auth)
+
         } catch (error) {
             setError(error.code.substring(error.code.indexOf('/') + 1).replaceAll("-", " "))
-            console.log(error)
             console.log(error)
         }
     }
 
-    const sendVerificationEmail = () => {
-        auth.currentUser.sendEmailVerification()
-            .then(() => {
-                console.log('Verification Email Sent Successfully !');
-            })
-            .catch(error => {
-                console.error(error);
-            })
-    }
+    // const sendVerificationEmail = () => {
+    //     auth.currentUser.sendEmailVerification()
+    //         .then(() => {
+    //             console.log('Verification Email Sent Successfully !');
+    //         })
+    //         .catch(error => {
+    //             console.error(error);
+    //         })
+    // }
 
     const handleChange = (event) => {
         const { name, value } = event.target
@@ -77,7 +105,8 @@ const Signup = ({ currUser }) => {
     const handleSubmit = (event) => {
         event.preventDefault();
         setError("")
-        if (!userData.firstName ||
+        if (!userData.name ||
+            !userData.phoneNo ||
             !userData.email ||
             !userData.password ||
             !userData.confirmPassword) {
@@ -90,6 +119,10 @@ const Signup = ({ currUser }) => {
         }
         if (userData.password !== userData.confirmPassword) {
             setError("Password does not match");
+            return;
+        }
+        if (userData.phoneNo.length !== 10) {
+            setError("Enter 10 digit Phone No.");
             return;
         }
 
@@ -118,26 +151,32 @@ const Signup = ({ currUser }) => {
                         </Typography>
                         <Box component="form" noValidate onSubmit={handleSubmit} onChange={handleChange} sx={{ mt: 3 }}>
                             <Grid container spacing={2}>
-                                <Grid item xs={12} sm={6}>
+                                <Grid item xs={12}>
                                     <TextField
                                         autoComplete="given-name"
-                                        name="firstName"
-                                        value={userData.firstName}
+                                        name="name"
+                                        value={userData.name}
                                         required
                                         fullWidth
-                                        id="firstName"
-                                        label="First Name"
+                                        type="text"
+                                        id="name"
+                                        label="Full Name"
                                         autoFocus
                                     />
                                 </Grid>
-                                <Grid item xs={12} sm={6}>
+                                <Grid item xs={12}>
                                     <TextField
+                                        required
                                         fullWidth
-                                        id="lastName"
-                                        label="Last Name"
-                                        name="lastName"
-                                        value={userData.lastName}
-                                        autoComplete="family-name"
+                                        id="phoneNo"
+                                        label="Phone No"
+                                        name="phoneNo"
+                                        type="number"
+                                        value={userData.phoneNo}
+                                        autoComplete="tel-national"
+                                        InputProps={{
+                                            startAdornment: <InputAdornment position="start">+91-</InputAdornment>,
+                                        }}
                                     />
                                 </Grid>
                                 <Grid item xs={12}>
@@ -147,6 +186,7 @@ const Signup = ({ currUser }) => {
                                         id="email"
                                         label="Email Address"
                                         name="email"
+                                        type="email"
                                         value={userData.email}
                                         autoComplete="email"
                                     />
@@ -172,6 +212,41 @@ const Signup = ({ currUser }) => {
                                         label="Confirm Password"
                                         type="password"
                                         id="confirmPassword"
+                                        autoComplete="new-password"
+                                    />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    {/* <TextField
+                                        fullWidth
+                                        name="hostelName"
+                                        value={userData.hostelName}
+                                        label="Hostel Name"
+                                        type="text"
+                                        id="hostelName"
+                                    /> */}
+                                    <FormControl fullWidth>
+                                        <InputLabel id="Hostel Name">Hostel Name</InputLabel>
+                                        <Select
+                                            labelId="Hostel Name Select"
+                                            id="hostelName"
+                                            value={userData.hostelName}
+                                            label="Hostel Name"
+                                            onChange={(e) => setUserData({ ...userData, hostelName: e.target.value })}
+                                        >
+                                            <MenuItem value={"Sri Dev Suman Boys Hostel"}>Sri Dev Suman Boys Hostel</MenuItem>
+                                            <MenuItem value={"Swami Vivekananda Boys Hostel"}>Swami Vivekananda Boys Hostel</MenuItem>
+                                            <MenuItem value={"Forestry Boys Hostel"}>Forestry Boys Hostel</MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <TextField
+                                        fullWidth
+                                        name="roomNo"
+                                        value={userData.roomNo}
+                                        label="Room No"
+                                        type="text"
+                                        id="roomNo"
                                     />
                                 </Grid>
                                 {error ?

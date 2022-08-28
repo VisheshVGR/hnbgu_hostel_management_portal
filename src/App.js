@@ -26,6 +26,7 @@ import AdminDashboard from "./Pages/AdminDashboard/AdminDashboard"
 const App = () => {
   // USE STATE
   const [currUser, setCurrUser] = useState(null);
+  console.log(currUser)
 
   // toast message
   const notify = (msg, type) => toast(msg, {
@@ -40,9 +41,12 @@ const App = () => {
     theme: "colored"
   });
 
-  onAuthStateChanged(auth, (user) => {
+  onAuthStateChanged(auth, async (user) => {
     if (user) {
+      // const q = query(collection(db, "hnbgu_hostel_management_portal_users"), where("uid", "==", user.uid));
+
       setCurrUser(user)
+
     } else {
       setCurrUser(null)
     }

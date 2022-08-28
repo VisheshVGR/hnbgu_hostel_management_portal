@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { auth } from "../Firebase/firebaseConfig"
 import { signOut } from 'firebase/auth';
 
 import { AppBar, Box, Toolbar, ListItemIcon, IconButton, Typography, Container, Avatar, Button, Tooltip, Drawer, List, Divider, ListItem, ListItemText } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
+// import InboxIcon from '@mui/icons-material/MoveToInbox';
 import LogoutIcon from '@mui/icons-material/Logout';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 import HomeIcon from '@mui/icons-material/Home';
 import LoginIcon from '@mui/icons-material/Login';
-import HowToRegIcon from '@mui/icons-material/HowToReg';
+// import HowToRegIcon from '@mui/icons-material/HowToReg';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 
 const Header = ({ currUser }) => {
@@ -60,11 +60,11 @@ const Header = ({ currUser }) => {
                             </ListItem>
                             <ListItem button onClick={() => navigate("/allComplaints")}>
                                 <ListItemIcon>
-                                    <LoginIcon />
+                                    <DashboardIcon />
                                 </ListItemIcon>
                                 <ListItemText primary="All Complaints" />
                             </ListItem>
-                            <ListItem button onClick={() => navigate("/signup")}>
+                            {/* <ListItem button onClick={() => navigate("/signup")}>
                                 <ListItemIcon>
                                     <HowToRegIcon />
                                 </ListItemIcon>
@@ -81,7 +81,7 @@ const Header = ({ currUser }) => {
                                     <DashboardIcon />
                                 </ListItemIcon>
                                 <ListItemText primary="Admin Dashboard" />
-                            </ListItem>
+                            </ListItem> */}
                         </List>
 
                     </> :
@@ -114,19 +114,10 @@ const Header = ({ currUser }) => {
     );
     return (
         <>
-            <AppBar position="static">
+            <AppBar position="sticky">
                 <Container maxWidth="xl">
                     <Toolbar disableGutters>
-                        <Typography
-                            variant="h6"
-                            noWrap
-                            component="div"
-                            sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
-                        >
-                            HNBGU Hostel Management Portal
-                        </Typography>
-
-                        <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+                        <Box sx={{ flexGrow: 1, display: { xs: 'flex' } }}>
                             <IconButton
                                 size="large"
                                 aria-label="account of current user"
@@ -139,15 +130,16 @@ const Header = ({ currUser }) => {
                             </IconButton>
                         </Box>
 
+
                         <Typography
                             variant="h6"
                             noWrap
                             component="div"
-                            sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
+                            sx={{ flexGrow: 1, display: { xs: 'flex' } }}
                         >
                             HNBGU Hostel Management Portal
                         </Typography>
-
+                        {/* 
                         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                             <Button
                                 sx={{ my: 2, color: 'white', display: 'block' }}
@@ -179,7 +171,7 @@ const Header = ({ currUser }) => {
                             >
                                 Admin Dashboard
                             </Button>
-                        </Box>
+                        </Box> */}
 
                         <Box sx={{ flexGrow: 0 }}>
                             {
