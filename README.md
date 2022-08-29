@@ -1,70 +1,102 @@
-# Getting Started with Create React App
+# HNBGU Hostel Management Portal
+[Github Link](https://github.com/VisheshVGR/hnbgu_hostel_management_portal) | [See live](https://hnbgu-hostel-management-portal.vercel.app/)
+## Table of Contents 📕
+* [About the Challenge](#coderelay-2022)
+* [Tools And Technologies](#tools-and-technologies)
+* [Features](#features)
+    * [Special Features](#special-features)
+    * [Data Table Used](#data-table-used)
+    * [Student Dashboard](#student-dashboard)
+    * [Officer Dashboard](#officer-dashboard)
+    * [Admin Dashboard](#admin-dashboard)
+    * [All Complaints](#all-complaints)
+    * [Miscellaneous Pages](#miscellaneous-pages)
+        * [Home Page](#home-page)
+        * [Hostels](#hostels)
+        * [Contact Us](#contact-us)
+* [Future Work](#future-work)
+* [Gallery](#gallery)
+* [Database Schema](#database-schema)
+# CodeRelay-2022
+* The Challenge
+	* Build a Hostel Management Portal
+	* Essential features which were expected
+	    * For Student 
+	        1.  Login Screen: You can either use Google authentication or just a normal
+email ID password
+	        2. The page after the login screen will be a Welcome Page, with a profile
+button and an option to raise a complaint. 
+	        3. Raise Complaint Page: This page will contain a submission form with
+categories like Name Of Hostel, Category Of The Issue (cleanliness,
+electricity, etc.), Name Of The Person, Availability (Time), Room Number,
+Phone Number, and Description Of Issue.
+	        4. Score of all participants for a quiz to be available to quiz admin at the end of quiz
+	    * For Administration
+	        1. The website will have the same interface with the only difference being for
+the complaint section.
+The admin can see the complaints lodged by students.
+	* Detailed View of the Problem Statement can be found [here](https://drive.google.com/file/d/1HLIcM1jE_TwxM7tiwRn-yQ41rGXy6Q3K/view?usp=sharing)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Tools and Technology
+* The Front-end is created in **React.js** and **Material UI**. 
+* For creating Back-end, we used **Firebase**. For the database, we used Google Firestore. We created a very flexible and versatile foundation for our codebase, so that in future its functionality could be easily extended and new agents could be easily added into it.
+* For hosting we used **Vercel** which is a cloud platform that enables developers to host websites and web services that deploy instantly, scale automatically, and require no supervision.
 
-## Available Scripts
+# Features :
 
-In the project directory, you can run:
+## Special Features
+* All Data is live fetched and updated improving user experience.
+* This is a single-page website with no refresh on page change enhancing page load speed.
+* Personalized background UI of student's respective hostel on Signup, Student Dashboard and Profile page implementing personalization.
+* Strict security rules with proper feedback messages using react-toastify.
+* Responsive website with accessibility features.
+* If officers 1 and 2 are not able to resolve this within 7 days, the complaint request will be promoted automatically to the next officer.
 
-### `npm start`
+## Data Table Used
+* It is used to display data in the form of table.
+* Easily sort your rows based on one or several criteria.
+* Easily filter your rows based on one or several criteria using Search Field.
+* Easily paginate your rows and only fetch what you need.
+* Easily export the rows in various file formats such as CSV, Excel, or PDF.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Student Dashboard
+* Student can Raise a New Complaing by entering 'Complaint Type' (electricity, cleanliness, mess, etc) and 'Complaint Description'
+* Student can see 'My Complaints' section with all complain lodged by him/her in Data Table.
+* Info icon open dialog box for additional information like Issued To, Remarks etc.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Officer Dashboard
+* Features same UI for three different officer - Caretaker, Warden, Chied Warden.
+* Data Table contains complaints issue to them only.
+* Info icon open dialog box including following features-
+    * Officer can set status of complaint as - Resolved, Pending, Declined
+    * Caretaker can esclate complaint to Warden and Warden can esclate complaint to Chief Warden
+    * Officer can add remarks for each complaints with additional information.
 
-### `npm test`
+## Admin Dashboard
+* Admin Data Table features all account details.
+* Admin can change any account type to - Student, Caretaker, Warden, Chief Warden, Admin.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## All Complaints
+* Every visitor is able to see all complaints
+* User can filter complains accordint to Resolved, Pending, Declined
+* All Data Talbe features available
+* Info icon open dialog box for additional information with remarks from Officer
 
-### `npm run build`
+## Miscellaneous Pages
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Home Page
+* It is the home page of our website with basic information.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Hostels
+* It has information about various hostel available at HNBGU
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Contact Us
+* It contains information regarding contacts of HNBGU Hostels Officers.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Future Work
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Gallery
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# Database Schema
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
