@@ -6,7 +6,8 @@
 
 #root {
   background: #0f5e2021;
-  background-position: bottom;
-  background-repeat: no-repeat;
+  background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }

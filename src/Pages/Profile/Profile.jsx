@@ -18,8 +18,16 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import InputAdornment from '@mui/material/InputAdornment';
 import Select from '@mui/material/Select';
+import SaveIcon from '@mui/icons-material/Save';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Paper } from "@mui/material"
+
+// hostel pic
+import alak from "../../Assets/hostel/alak.jpg"
+import bhag from "../../Assets/hostel/bhag.jpg"
+import sds from "../../Assets/hostel/sds.jpg"
+import vive from "../../Assets/hostel/vive.jpg"
+import yamuna from "../../Assets/hostel/yamuna.jpg"
 
 
 const Profile = ({ currUser, notify }) => {
@@ -41,6 +49,30 @@ const Profile = ({ currUser, notify }) => {
         setError("")
     }, [])
 
+    useEffect(() => {
+        let bg = document.getElementById("root")
+
+        if (userData) {
+            console.log(userData.hostelName)
+            switch (userData.hostelName) {
+                case "Alaknanda Girls Hostel": bg.style.background = `url(${alak})`; break;
+                case "Bhagirathi Girls Hostel": bg.style.background = `url(${bhag})`; break;
+                case "Swami Vivekanand Boys Hostel": bg.style.background = `url(${vive})`; break;
+                case "Yammuna Girls Hostel": bg.style.background = `url(${yamuna})`; break;
+                case "Sri Dev Suman Boys Hostel": bg.style.background = `url(${sds})`; break;
+                default: bg.style.background = "#0f5e2021"; break;
+            }
+        }
+        bg.style.backgroundPosition = "center";
+        bg.style.backgroundSize = "cover";
+        bg.style.backgroundRepeat = "no-repeat";
+        bg.style.backgroundAttachment = "fixed";
+
+        return (() => {
+            bg.style.background = "#0f5e2021";
+        })
+
+    }, [userData])
 
     useEffect(() => {
         if (!currUser) {
@@ -238,6 +270,7 @@ const Profile = ({ currUser, notify }) => {
                                 variant="contained"
                                 sx={{ mt: 3, mb: 2 }}
                             >
+                                <SaveIcon sx={{ marginRight: 1 }} />
                                 Save Changes
                             </Button>
                         </Box>

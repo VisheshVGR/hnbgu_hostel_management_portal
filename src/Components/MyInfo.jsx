@@ -9,7 +9,7 @@ import Avatar from '@mui/material/Avatar';
 export default function MediaControlCard({ currUser, myinfo }) {
 
     return (
-        <Card sx={{ display: 'flex', justifyContent: "start", alignItems: "center", flexFlow: { xs: "column", md: "row" } }}>
+        <Card sx={{ background:"rgba(255,255,255,0.9)",marginY: 3, display: 'flex', justifyContent: "start", alignItems: "center", flexFlow: { xs: "column", md: "row" } }}>
             <Avatar alt={currUser ? currUser.displayName : ""} src={currUser ? currUser.photoURL : ""} sx={{ width: "100px", height: "100px", margin: 3 }} />
 
             <Box sx={{ display: 'flex', flexDirection: 'column' }}>

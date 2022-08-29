@@ -8,12 +8,43 @@ import MyInfo from "../../Components/MyInfo"
 
 import { Paper } from "@mui/material"
 
+// hostel pic
+import alak from "../../Assets/hostel/alak.jpg"
+import bhag from "../../Assets/hostel/bhag.jpg"
+import sds from "../../Assets/hostel/sds.jpg"
+import vive from "../../Assets/hostel/vive.jpg"
+import yamuna from "../../Assets/hostel/yamuna.jpg"
+
 const StudentDashboard = ({ currUser, notify }) => {
     const navigate = useNavigate()
 
     const [myinfo, setmyinfo] = useState({})
 
-    console.log(document.body.style)
+    useEffect(() => {
+        let bg = document.getElementById("root")
+        // bg.style.background = "#aaa";
+        // bg.style.background = `url(${alak})`
+        if (myinfo) {
+            console.log(myinfo.hostelName)
+            switch (myinfo.hostelName) {
+                case "Alaknanda Girls Hostel": bg.style.background = `url(${alak})`; break;
+                case "Bhagirathi Girls Hostel": bg.style.background = `url(${bhag})`; break;
+                case "Swami Vivekanand Boys Hostel": bg.style.background = `url(${vive})`; break;
+                case "Yammuna Girls Hostel": bg.style.background = `url(${yamuna})`; break;
+                case "Sri Dev Suman Boys Hostel": bg.style.background = `url(${sds})`; break;
+                default: bg.style.background = "#0f5e2021"; break;
+            }
+        }
+        bg.style.backgroundPosition = "center";
+        bg.style.backgroundSize = "cover";
+        bg.style.backgroundRepeat = "no-repeat";
+        bg.style.backgroundAttachment = "fixed";
+
+        return (() => {
+            bg.style.background = "#0f5e2021";
+        })
+
+    }, [myinfo])
 
     useEffect(() => {
         if (myinfo && myinfo.accountType) {
@@ -51,14 +82,12 @@ const StudentDashboard = ({ currUser, notify }) => {
 
     return (
         <>
-            <Paper elevation={0} sx={{ my: 3, p: 3 }}>
-                <MyInfo currUser={currUser} myinfo={myinfo}/>
+            <MyInfo currUser={currUser} myinfo={myinfo} />
+            <Paper elevation={6} sx={{ my: 3, p: 3 }}>
+                <NewComplaintForm currUser={currUser} myinfo={myinfo} notify={notify} />
             </Paper>
             <Paper elevation={6} sx={{ my: 3, p: 3 }}>
-                <NewComplaintForm currUser={currUser} myinfo={myinfo} notify={notify}/>
-            </Paper>
-            <Paper elevation={6} sx={{ my: 3, p: 3 }}>
-                <MyComplaints currUser={currUser} myinfo={myinfo} notify={notify}/>
+                <MyComplaints currUser={currUser} myinfo={myinfo} notify={notify} />
             </Paper>
         </>
     )
