@@ -12,7 +12,7 @@ const AdminDashboard = ({ currUser, notify }) => {
     const navigate = useNavigate()
 
     const [myinfo, setmyinfo] = useState({})
-    
+
     useEffect(() => {
         if (myinfo.accountType) {
             if (myinfo.accountType === "Student") {
@@ -49,9 +49,7 @@ const AdminDashboard = ({ currUser, notify }) => {
 
     return (
         <>
-            <Paper elevation={0} sx={{ my: 3, p: 3 }}>
-                <MyInfo currUser={currUser} myinfo={myinfo} />
-            </Paper>
+            <MyInfo currUser={currUser} myinfo={myinfo} />
             <Paper elevation={6} sx={{ my: 3, p: 3 }}>
                 <UsersTable currUser={currUser} myinfo={myinfo} notify={notify} />
             </Paper>

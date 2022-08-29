@@ -1,6 +1,6 @@
 # HNBGU Hostel Management Portal
 [Github Link](https://github.com/VisheshVGR/hnbgu_hostel_management_portal) | [See live](https://hnbgu-hostel-management-portal.vercel.app/)
-> Admin account details :
+> Admin account details -
 > Email : visheshguptavgr10@gmail.com
 > Password : password
 ## Table of Contents 📕
@@ -22,22 +22,15 @@
 * [Database Schema](#database-schema)
 # CodeRelay-2022
 * The Challenge
-	* Build a Hostel Management Portal
-	* Essential features which were expected
-	    * For Student 
-	        1.  Login Screen: You can either use Google authentication or just a normal
-email ID password
-	        2. The page after the login screen will be a Welcome Page, with a profile
-button and an option to raise a complaint. 
-	        3. Raise Complaint Page: This page will contain a submission form with
-categories like Name Of Hostel, Category Of The Issue (cleanliness,
-electricity, etc.), Name Of The Person, Availability (Time), Room Number,
-Phone Number, and Description Of Issue.
-	        4. Score of all participants for a quiz to be available to quiz admin at the end of quiz
+	* Build a Hostel Management Portal.
+	* Essential features which were expected-
+	    * For Student-
+	        1.  Login Screen: You can either use Google authentication or just a normal email ID password.
+	        2. The page after the login screen will be a Welcome Page, with a profile button and an option to raise a complaint. 
+	        3. Raise Complaint Page: This page will contain a submission form with categories like Name Of Hostel, Category Of The Issue (cleanliness, electricity, etc.), Name Of The Person, Availability (Time), Room Number, Phone Number, and Description Of Issue.
 	    * For Administration
-	        1. The website will have the same interface with the only difference being for
-the complaint section.
-The admin can see the complaints lodged by students.
+	        1. The website will have the same interface with the only difference being for the complaint section. 
+            2. The admin can see the complaints lodged by students.
 	* Detailed View of the Problem Statement can be found [here](https://drive.google.com/file/d/1HLIcM1jE_TwxM7tiwRn-yQ41rGXy6Q3K/view?usp=sharing)
 
 # Tools and Technology
@@ -61,9 +54,10 @@ The admin can see the complaints lodged by students.
 * Easily filter your rows based on one or several criteria using Search Field.
 * Easily paginate your rows and only fetch what you need.
 * Easily export the rows in various file formats such as CSV, Excel, or PDF.
+* Quick peek of issue without have to open info dialog box.
 
 ## Student Dashboard
-* Student can Raise a New Complaing by entering 'Complaint Type' (electricity, cleanliness, mess, etc) and 'Complaint Description'
+* Student can Raise a New Complaing by entering 'Complaint Type' (electricity, cleanliness, mess, etc) and 'Complaint Description'.
 * Student can see 'My Complaints' section with all complain lodged by him/her in Data Table.
 * Info icon open dialog box for additional information like Issued To, Remarks etc.
 
@@ -71,8 +65,8 @@ The admin can see the complaints lodged by students.
 * Features same UI for three different officer - Caretaker, Warden, Chied Warden.
 * Data Table contains complaints issue to them only.
 * Info icon open dialog box including following features-
-    * Officer can set status of complaint as - Resolved, Pending, Declined
-    * Caretaker can esclate complaint to Warden and Warden can esclate complaint to Chief Warden
+    * Officer can set status of complaint as - Resolved, Pending, Declined.
+    * Caretaker can esclate complaint to Warden and Warden can esclate complaint to Chief Warden.
     * Officer can add remarks for each complaints with additional information.
 
 ## Admin Dashboard
@@ -80,10 +74,10 @@ The admin can see the complaints lodged by students.
 * Admin can change any account type to - Student, Caretaker, Warden, Chief Warden, Admin.
 
 ## All Complaints
-* Every visitor is able to see all complaints
-* User can filter complains accordint to Resolved, Pending, Declined
-* All Data Talbe features available
-* Info icon open dialog box for additional information with remarks from Officer
+* Every visitor is able to see all complaints.
+* User can filter complains accordint to Resolved, Pending, Declined.
+* All Data Talbe features available.
+* Info icon open dialog box for additional information with remarks from Officer.
 
 ## Miscellaneous Pages
 
@@ -91,7 +85,7 @@ The admin can see the complaints lodged by students.
 * It is the home page of our website with basic information.
 
 ### Hostels
-* It has information about various hostel available at HNBGU
+* It has information about various hostel available at HNBGU.
 
 ### Contact Us
 * It contains information regarding contacts of HNBGU Hostels Officers.

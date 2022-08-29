@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
@@ -11,7 +12,6 @@ import { useTheme } from '@mui/material/styles';
 import InfoIcon from '@mui/icons-material/Info';
 import IconButton from '@mui/material/IconButton';
 import Chip from '@mui/material/Chip';
-import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 
 export default function ResponsiveDialog({ complaintData }) {

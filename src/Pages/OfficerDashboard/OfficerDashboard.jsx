@@ -49,9 +49,7 @@ const OfficerDashboard = ({ currUser, notify }) => {
 
     return (
         <>
-            <Paper elevation={0} sx={{ my: 3, p: 3 }}>
-                <MyInfo currUser={currUser} myinfo={myinfo} />
-            </Paper>
+            <MyInfo currUser={currUser} myinfo={myinfo} />
             <Paper elevation={6} sx={{ my: 3, p: 3 }}>
                 <ComplaintsTable currUser={currUser} myinfo={myinfo} notify={notify} />
             </Paper>
