@@ -1,5 +1,12 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+#root {
+  background: #0f5e2021;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

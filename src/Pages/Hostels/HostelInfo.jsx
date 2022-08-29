@@ -48,9 +48,6 @@ export default function FullScreenDialog({ hostelDet }) {
                     <Typography variant="h5" component="div">
                         {hostelDet.hostelName}
                     </Typography>
-                    <Typography variant="body2">
-                        {hostelDet.desc}
-                    </Typography>
                 </CardContent>
             </Card>
 
@@ -82,8 +79,7 @@ export default function FullScreenDialog({ hostelDet }) {
                     <Typography variant="h3" component="h3">
                         {hostelDet.hostelName}
                     </Typography>
-                    <Typography variant="body2" component="p">
-                        {hostelDet.desc}
+                    <Typography variant="body2" component="p" dangerouslySetInnerHTML={{ __html: hostelDet.desc }}>
                     </Typography>
                 </Box>
 

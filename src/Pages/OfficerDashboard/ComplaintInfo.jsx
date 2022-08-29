@@ -22,7 +22,6 @@ export default function ResponsiveDialog({ complaintData, myinfo, notify }) {
     const theme = useTheme();
     const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
     const complainRef = doc(db, "hnbgu_hostel_management_portal_complaints", complaintData.key);
-    console.log(myinfo)
     const handleClickOpen = () => {
         setOpen(true);
     };

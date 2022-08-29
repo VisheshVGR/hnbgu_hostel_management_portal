@@ -12,7 +12,7 @@ const AdminDashboard = ({ currUser, notify }) => {
     const navigate = useNavigate()
 
     const [myinfo, setmyinfo] = useState({})
-
+    
     useEffect(() => {
         if (myinfo.accountType) {
             if (myinfo.accountType === "Student") {
