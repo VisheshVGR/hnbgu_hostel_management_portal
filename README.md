@@ -92,6 +92,13 @@
 
 
 # Future Work
+* New Notice / Circullars section posted by Officers can be displayed at home page.
+* Hostel admission process can be implemented.
+* We can add feature to allocate room using website and verify students along with their documents using it.
+* Fee Payment geteway can be implemented.
+* Email verification, only particular college email id allowed security can be added.
+* Website can be extended with new images, more hostels and more features.
+
 
 # Gallery
 
