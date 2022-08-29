@@ -4,7 +4,7 @@ import { auth } from "../../Firebase/firebaseConfig"
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../Firebase/firebaseConfig"
-
+import HowToRegIcon from '@mui/icons-material/HowToReg';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Alert from '@mui/material/Alert';
@@ -24,6 +24,14 @@ import Select from '@mui/material/Select';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Paper } from "@mui/material"
 
+// hostel pic
+import alak from "../../Assets/hostel/alak.jpg"
+import bhag from "../../Assets/hostel/bhag.jpg"
+import sds from "../../Assets/hostel/sds.jpg"
+import vive from "../../Assets/hostel/vive.jpg"
+import yamuna from "../../Assets/hostel/yamuna.jpg"
+
+
 const Signup = ({ currUser, notify }) => {
     const navigate = useNavigate()
     const theme = createTheme();
@@ -38,6 +46,31 @@ const Signup = ({ currUser, notify }) => {
         hostelName: "",
         roomNo: "",
     })
+
+    useEffect(() => {
+        let bg = document.getElementById("root")
+
+        if (userData) {
+            console.log(userData.hostelName)
+            switch (userData.hostelName) {
+                case "Alaknanda Girls Hostel": bg.style.background = `url(${alak})`; break;
+                case "Bhagirathi Girls Hostel": bg.style.background = `url(${bhag})`; break;
+                case "Swami Vivekanand Boys Hostel": bg.style.background = `url(${vive})`; break;
+                case "Yammuna Girls Hostel": bg.style.background = `url(${yamuna})`; break;
+                case "Sri Dev Suman Boys Hostel": bg.style.background = `url(${sds})`; break;
+                default: bg.style.background = "#0f5e2021"; break;
+            }
+        }
+        bg.style.backgroundPosition = "center";
+        bg.style.backgroundSize = "cover";
+        bg.style.backgroundRepeat = "no-repeat";
+        bg.style.backgroundAttachment = "fixed";
+
+        return (() => {
+            bg.style.background = "#0f5e2021";
+        })
+
+    }, [userData])
 
     useEffect(() => {
         if (currUser) {
@@ -265,6 +298,7 @@ const Signup = ({ currUser, notify }) => {
                                     variant="contained"
                                     sx={{ mt: 3, mb: 2 }}
                                 >
+                                    <HowToRegIcon sx={{ marginRight: 1 }} />
                                     Sign Up
                                 </Button>
                                 <Grid container justifyContent="flex-end">
