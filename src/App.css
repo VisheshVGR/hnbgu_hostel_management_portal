@@ -11,3 +11,14 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+
+/* SCROLL BAR THEME */
+*::-webkit-scrollbar {
+  width: 10px;
+  background-color: #131313;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #008336;
+  /* border-radius: 5px; */
+}

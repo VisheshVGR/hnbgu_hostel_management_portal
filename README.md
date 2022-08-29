@@ -1,8 +1,11 @@
 # HNBGU Hostel Management Portal
 [Github Link](https://github.com/VisheshVGR/hnbgu_hostel_management_portal) | [See live](https://hnbgu-hostel-management-portal.vercel.app/)
+> Admin account details :
+> Email : visheshguptavgr10@gmail.com
+> Password : password
 ## Table of Contents 📕
 * [About the Challenge](#coderelay-2022)
-* [Tools And Technologies](#tools-and-technologies)
+* [Tools And Technology](#tools-and-technology)
 * [Features](#features)
     * [Special Features](#special-features)
     * [Data Table Used](#data-table-used)
@@ -42,7 +45,7 @@ The admin can see the complaints lodged by students.
 * For creating Back-end, we used **Firebase**. For the database, we used Google Firestore. We created a very flexible and versatile foundation for our codebase, so that in future its functionality could be easily extended and new agents could be easily added into it.
 * For hosting we used **Vercel** which is a cloud platform that enables developers to host websites and web services that deploy instantly, scale automatically, and require no supervision.
 
-# Features :
+# Features
 
 ## Special Features
 * All Data is live fetched and updated improving user experience.
