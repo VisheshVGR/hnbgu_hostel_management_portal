@@ -95,5 +95,22 @@
 
 # Gallery
 
+|||
+|:-------------------------:|:-------------------------:|
+|<img width="1604" alt="Home Page" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/Homepage-1.png">  Home Page |  <img width="1604" alt="Home Page" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/Homepage-2.png"> Home Page |
+|<img width="1604" alt="Hostel Page" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/Hostel.png"> Hostel Page|<img width="1604" alt="Single Hostel Info" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/Hostel-single.png"> Single Hostel Info |
+ <img width="1604" alt="Contact Us" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/Contactus.png">Contact Us|<img width="1604" alt="All Complaints" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/AllComplaints.png"> All Complaints |
+|<img width="1604" alt="All Complainta (info dialog box)" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/AllComplaints-info.png"> All Complaints (info dialog box) |  <img width="1604" alt="Signin Page" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/Signin.png"> Signin Page|
+<img width="1604" alt="Signup Page" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/Signup.png"> Signup Page| <img width="1604" alt="Profile Page" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/Profile.png"> Profile Page |
+<img width="1604" alt="Student Dashboard (Register Complaint)" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/Student-1.png"> Student Dashboard (Register Complaint) | <img width="1604" alt="Student Dashboard (My Complaints)" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/Student-2.png"> Student Dashboard (My Complaints)|
+<img width="1604" alt="Student Dashboard (info dialog box)" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/Student-info.png"> Student Dashboard (info dialog box) | <img width="1604" alt="Officer Dashboard" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/Officer.png"> Officer Dashboard|
+<img width="1604" alt="Officer Dashboard (info dialog box)" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/Officer-info.png"> Officer Dashboard (info dialog box) | <img width="1604" alt="Admin Dashboard" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/Admin.png"> Admin Dashboard|
+<img width="1604" alt="Admin Dashboard (info dialog box)" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/Admin-info.png"> Admin Dashboard (info dialog box) |
+
+
 # Database Schema
 
+
+|||
+|:-------------------------:|:-------------------------:|
+|<img width="1604" alt="Users Schema" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/db-users.png">  Users Schema |  <img width="1604" alt="Complaints Schema" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/db-complaints.png"> Complaints Schema |
