@@ -19,8 +19,6 @@ const ComplaintsTable = () => {
     const [filteredComplaints, setFilteredComplaints] = useState([])
     const [tabPage, setTabPage] = useState('1');
 
-    console.log(filteredComplaints)
-
     const [pageSize, setPageSize] = useState(5);
 
     const handleChangeTabPage = (event, newValue) => {

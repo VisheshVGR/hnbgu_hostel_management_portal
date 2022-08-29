@@ -20,8 +20,6 @@ const UsersTable = ({ currUser, myinfo, notify }) => {
     const [tabPage, setTabPage] = useState('1');
 
 
-    console.log(filteredUsers)
-
     const [pageSize, setPageSize] = useState(5);
 
     const handleChangeTabPage = (event, newValue) => {

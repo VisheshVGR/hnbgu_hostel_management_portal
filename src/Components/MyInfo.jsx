@@ -7,7 +7,6 @@ import Typography from '@mui/material/Typography';
 import Avatar from '@mui/material/Avatar';
 
 export default function MediaControlCard({ currUser, myinfo }) {
-    console.log(currUser, myinfo)
 
     return (
         <Card sx={{ display: 'flex', justifyContent: "start", alignItems: "center", flexFlow: { xs: "column", md: "row" } }}>

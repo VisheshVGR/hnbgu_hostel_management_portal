@@ -13,8 +13,14 @@ import HomeIcon from '@mui/icons-material/Home';
 import LoginIcon from '@mui/icons-material/Login';
 // import HowToRegIcon from '@mui/icons-material/HowToReg';
 import DashboardIcon from '@mui/icons-material/Dashboard';
+import favicon from "../Assets/HNBGUlogo.png"
 
-const Header = ({ currUser }) => {
+import PropTypes from 'prop-types';
+import useScrollTrigger from '@mui/material/useScrollTrigger';
+import Slide from '@mui/material/Slide';
+
+
+const Header = ({ currUser }, props) => {
     let navigate = useNavigate();
 
     const signOutFunction = async () => {
@@ -63,6 +69,18 @@ const Header = ({ currUser }) => {
                                     <DashboardIcon />
                                 </ListItemIcon>
                                 <ListItemText primary="All Complaints" />
+                            </ListItem>
+                            <ListItem button onClick={() => navigate("/hostels")}>
+                                <ListItemIcon>
+                                    <DashboardIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Hostels" />
+                            </ListItem>
+                            <ListItem button onClick={() => navigate("/contactus")}>
+                                <ListItemIcon>
+                                    <DashboardIcon />
+                                </ListItemIcon>
+                                <ListItemText primary="Contact Us" />
                             </ListItem>
                             {/* <ListItem button onClick={() => navigate("/signup")}>
                                 <ListItemIcon>
@@ -114,92 +132,128 @@ const Header = ({ currUser }) => {
     );
     return (
         <>
-            <AppBar position="sticky">
-                <Container maxWidth="xl">
-                    <Toolbar disableGutters>
-                        <Box sx={{ flexGrow: 1, display: { xs: 'flex' } }}>
-                            <IconButton
-                                size="large"
-                                aria-label="account of current user"
-                                aria-controls="menu-appbar"
-                                aria-haspopup="true"
-                                onClick={toggleDrawer('left', true)}
-                                color="inherit"
-                            >
-                                <MenuIcon />
-                            </IconButton>
-                        </Box>
 
 
-                        <Typography
-                            variant="h6"
-                            noWrap
-                            component="div"
-                            sx={{ flexGrow: 1, display: { xs: 'flex' } }}
-                        >
-                            HNBGU Hostel Management Portal
-                        </Typography>
-                        {/* 
-                        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                            <Button
-                                sx={{ my: 2, color: 'white', display: 'block' }}
-                                onClick={() => navigate("/")}
-                            >
-                                Home
-                            </Button>
-                            <Button
-                                sx={{ my: 2, color: 'white', display: 'block' }}
-                                onClick={() => navigate("/allComplaints")}
-                            >
-                                All Complaints
-                            </Button>
-                            <Button
-                                sx={{ my: 2, color: 'white', display: 'block' }}
-                                onClick={() => navigate("/studentDashboard")}
-                            >
-                                Student Dashboard
-                            </Button>
-                            <Button
-                                sx={{ my: 2, color: 'white', display: 'block' }}
-                                onClick={() => navigate("/officerDashboard")}
-                            >
-                                Officer Dashboard
-                            </Button>
-                            <Button
-                                sx={{ my: 2, color: 'white', display: 'block' }}
-                                onClick={() => navigate("/adminDashboard")}
-                            >
-                                Admin Dashboard
-                            </Button>
-                        </Box> */}
+            <HideOnScroll {...props}>
 
-                        <Box sx={{ flexGrow: 0 }}>
-                            {
-                                currUser ?
-                                    <>
-                                        <Tooltip title="Open settings">
-                                            <IconButton onClick={toggleDrawer('right', true)} sx={{ p: 0 }}>
-                                                <Avatar alt={currUser.displayName} src={currUser.photoURL} />
-                                            </IconButton>
-                                        </Tooltip>
-                                    </>
-                                    :
-                                    <>
-                                        <Button
-                                            // variant="outlined"
-                                            color="inherit"
-                                            onClick={() => navigate("/login")}
-                                            startIcon={<LoginIcon />}
-                                        >Sign In</Button>
-                                    </>
-                            }
+                <Box>
+                    <AppBar position="static" sx={{ background: "white", color: "black" }}>
+
+                        <Container maxWidth="xl" >
+                            <Toolbar disableGutters sx={{ paddingY: 2 }}>
+
+                                <img src={favicon} alt="HNBGU Logo" style={{ height: "100px", padding: "10px" }} />
+                                <Box sx={{ display: "flex", flexFlow: "column" }}>
+                                    <Typography
+                                        variant="h6"
+                                        component="h6"
+                                        sx={{ flexGrow: 1, display: { xs: 'none', md: "flex" } }}
+                                    >
+                                        HEMVATI NANDAN BAHUGUNA GARHWAL UNIVERSITY
+                                    </Typography>
+                                    <Typography
+                                        variant="h6"
+                                        sx={{ textAlign: { xs: "start", md: "center" }, display: { xs: "block", md: "none" } }}
+                                        component="h6"
+                                    >
+                                        HNBGU
+                                    </Typography>
+                                    <Typography
+                                        variant="subtitle2"
+                                        sx={{ textAlign: { xs: "start", md: "center" } }}
+                                        component="p"
+                                    >
+                                        A Central University
+                                    </Typography>
+
+                                    <Typography variant="h5" component="h5" sx={{ display: { xs: "block", md: "none" }, fontWeight: "bolder", color: "#008336" }}>
+                                        Hostel Management Portal
+                                    </Typography>
+                                </Box>
+                                <Box sx={{ display: { xs: "none", md: "flex" }, justifyContent: { xs: "center", md: "start" }, marginLeft: { xs: 0, md: 2 }, alignItems: "center", borderLeft: "2px solid grey" }}>
+                                    <Typography variant="h4" component="h4" sx={{ fontWeight: "bolder", padding: 2, color: "#008336" }}>
+                                        Hostel Management Portal
+                                    </Typography>
+
+                                </Box>
+
+                            </Toolbar>
+                        </Container>
+                    </AppBar>
+                    <AppBar position="sticky" sx={{ background: "#008336" }}>
+
+                        <Container maxWidth="xl" >
+                            <Toolbar disableGutters>
+                                <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+                                    <IconButton
+                                        size="large"
+                                        aria-label="account of current user"
+                                        aria-controls="menu-appbar"
+                                        aria-haspopup="true"
+                                        onClick={toggleDrawer('left', true)}
+                                        color="inherit"
+                                    >
+                                        <MenuIcon />
+                                    </IconButton>
+                                </Box>
+
+                                <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                                    <Button
+                                        sx={{ my: 2, color: 'white', display: 'block' }}
+                                        onClick={() => navigate("/")}
+                                    >
+                                        Home
+                                    </Button>
+                                    <Button
+                                        sx={{ my: 2, color: 'white', display: 'block' }}
+                                        onClick={() => navigate("/allComplaints")}
+                                    >
+                                        All Complaints
+                                    </Button>
+                                    <Button
+                                        sx={{ my: 2, color: 'white', display: 'block' }}
+                                        onClick={() => navigate("/hostels")}
+                                    >
+                                        Hostels
+                                    </Button>
+                                    <Button
+                                        sx={{ my: 2, color: 'white', display: 'block' }}
+                                        onClick={() => navigate("/contactus")}
+                                    >
+                                        Contact Us
+                                    </Button>
+                                </Box>
+
+
+                                <Box sx={{ flexGrow: 0 }}>
+                                    {
+                                        currUser ?
+                                            <>
+                                                <Tooltip title="Open settings">
+                                                    <IconButton onClick={toggleDrawer('right', true)} sx={{ p: 0 }}>
+                                                        <Avatar alt={currUser.displayName} src={currUser.photoURL} />
+                                                    </IconButton>
+                                                </Tooltip>
+                                            </>
+                                            :
+                                            <>
+                                                <Button
+                                                    // variant="outlined"
+                                                    color="inherit"
+                                                    onClick={() => navigate("/login")}
+                                                    startIcon={<LoginIcon />}
+                                                >Sign In</Button>
+                                            </>
+                                    }
 
 
 
-                        </Box>
-                    </Toolbar>
-                </Container>
-            </AppBar>
+                                </Box>
+                            </Toolbar>
+                        </Container>
+                    </AppBar>
+                </Box>
+            </HideOnScroll>
 
             {/* left drawer */}
             <Drawer
@@ -222,3 +276,30 @@ const Header = ({ currUser }) => {
     );
 };
 export default Header;
+
+
+
+function HideOnScroll(props) {
+    const { children, window } = props;
+    // Note that you normally won't need to set the window ref as useScrollTrigger
+    // will default to window.
+    // This is only being set here because the demo is in an iframe.
+    const trigger = useScrollTrigger({
+        target: window ? window() : undefined,
+    });
+
+    return (
+        <Slide appear={false} direction="down" in={!trigger}>
+            {children}
+        </Slide>
+    );
+}
+
+HideOnScroll.propTypes = {
+    children: PropTypes.element.isRequired,
+    /**
+     * Injected by the documentation to work in an iframe.
+     * You won't need it on your project.
+     */
+    window: PropTypes.func,
+};

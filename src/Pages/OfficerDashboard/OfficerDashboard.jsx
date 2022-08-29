@@ -12,7 +12,6 @@ const OfficerDashboard = ({ currUser, notify }) => {
     const navigate = useNavigate()
 
     const [myinfo, setmyinfo] = useState({})
-    console.log(myinfo)
 
     useEffect(() => {
         if (myinfo.accountType) {

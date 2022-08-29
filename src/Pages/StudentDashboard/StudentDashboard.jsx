@@ -12,7 +12,8 @@ const StudentDashboard = ({ currUser, notify }) => {
     const navigate = useNavigate()
 
     const [myinfo, setmyinfo] = useState({})
-    console.log(myinfo)
+
+    console.log(document.body.style)
 
     useEffect(() => {
         if (myinfo && myinfo.accountType) {

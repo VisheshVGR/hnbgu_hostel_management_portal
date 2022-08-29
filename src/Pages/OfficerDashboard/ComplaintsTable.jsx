@@ -19,7 +19,6 @@ const ComplaintsTable = ({ currUser, myinfo, notify }) => {
     const [filteredComplaints, setFilteredComplaints] = useState([])
     const [tabPage, setTabPage] = useState('1');
 
-    console.log(filteredComplaints)
 
     const [pageSize, setPageSize] = useState(5);
 
@@ -31,7 +30,6 @@ const ComplaintsTable = ({ currUser, myinfo, notify }) => {
         if (!myinfo.uid)
             return
 
-        console.log("account tyep", myinfo.accountType)
 
         const q = query(collection(db, "hnbgu_hostel_management_portal_complaints"), where("issuedTo", "==", myinfo.accountType));
         const unsubscribe = onSnapshot(q, (querySnapshot) => {
@@ -106,7 +104,6 @@ const ComplaintsTable = ({ currUser, myinfo, notify }) => {
             width: 80,
             sortable: false,
             renderCell: (params) => {
-                // console.log("param", params.row)
                 return (
                     <>
                         <ComplaintInfo complaintData={params.row} myinfo={myinfo} notify={notify} />

@@ -21,6 +21,8 @@ const Login = ({ currUser, notify }) => {
     const navigate = useNavigate()
     const theme = createTheme();
 
+    const [studentSignIn, setStudentSignIn] = useState(true)
+
     const [error, setError] = useState("this is")
     const [userData, setUserData] = useState({
         email: "",
@@ -94,6 +96,9 @@ const Login = ({ currUser, notify }) => {
                             <LockOutlinedIcon />
                         </Avatar>
                         <Typography component="h1" variant="h5">
+                            {
+                                studentSignIn ? "Student | " : "Admin | "
+                            }
                             Sign in
                         </Typography>
                         <Box component="form" onSubmit={handleSubmit} onChange={handleChange} noValidate sx={{ mt: 1 }}>
@@ -143,8 +148,22 @@ const Login = ({ currUser, notify }) => {
                                 variant="contained"
                                 sx={{ mt: 3, mb: 2 }}
                             >
-                                <LoginIcon sx={{ marginEnd: 2 }} />Sign In
+                                <LoginIcon sx={{ marginRight: 1 }} />Sign In
                             </Button>
+                            <Button
+                                fullWidth
+                                color="error"
+                                variant="outlined"
+                                sx={{ mb: 2 }}
+                                onClick={() => setStudentSignIn(!studentSignIn)}
+                            >
+                                <LoginIcon sx={{ marginRight: 1 }} />Sign In as
+                                {
+                                    studentSignIn ? " Admin" : " Student"
+                                }
+
+                            </Button>
+
                             <Grid container>
                                 <Grid item xs>
                                     <Link href="#" variant="body2" onClick={forgotPassword}>

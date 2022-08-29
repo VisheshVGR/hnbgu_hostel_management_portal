@@ -13,8 +13,6 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { Typography } from "@mui/material";
 
-
-
 const NewComplaintForm = ({ currUser, myinfo, notify }) => {
     const [error, setError] = useState("")
     const [complaintInfo, setComplaintInfo] = useState({
@@ -86,7 +84,7 @@ const NewComplaintForm = ({ currUser, myinfo, notify }) => {
                 <Grid container spacing={2}>
                     <Grid item xs={12}>
                         <Typography variant="h3" sx={{ textAlign: "center", wordBreak: "break-word" }} gutterBottom>
-                            Register New Complaint
+                            Raise A Complaint
                         </Typography>
                     </Grid>
                     <Grid container spacing={2} item xs={12} lg={6} sx={{ mt: { xs: 5, lg: "auto" }, mb: "auto", mx: "auto" }}>
@@ -107,6 +105,12 @@ const NewComplaintForm = ({ currUser, myinfo, notify }) => {
                                 >
                                     <MenuItem value={"Electricity"}>Electricity</MenuItem>
                                     <MenuItem value={"Cleanliness"}>Cleanliness</MenuItem>
+                                    <MenuItem value={"Plumbing"}>Plumbing</MenuItem>
+                                    <MenuItem value={"Mess"}>Mess</MenuItem>
+                                    <MenuItem value={"Carpentary"}>Carpentary</MenuItem>
+                                    <MenuItem value={"Civil"}>Civil</MenuItem>
+                                    <MenuItem value={"WiFi"}>WiFi</MenuItem>
+                                    <MenuItem value={"Other"}>Other</MenuItem>
                                 </Select>
                             </FormControl>
                         </Grid>

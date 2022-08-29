@@ -18,7 +18,6 @@ export default function ResponsiveDialog({ complaintData, myinfo }) {
     const [open, setOpen] = React.useState(false);
     const theme = useTheme();
     const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
-    console.log(complaintData, myinfo)
     const handleClickOpen = () => {
         setOpen(true);
     };

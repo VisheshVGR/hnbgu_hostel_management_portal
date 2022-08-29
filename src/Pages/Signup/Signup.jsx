@@ -68,13 +68,11 @@ const Signup = ({ currUser, notify }) => {
                 hostelName: userData.hostelName,
                 roomNo: userData.roomNo,
             }
-            console.log(newUserData)
 
-            const res = await addDoc(collection(db, "hnbgu_hostel_management_portal_users"),
+            await addDoc(collection(db, "hnbgu_hostel_management_portal_users"),
                 {
                     ...newUserData
                 });
-            console.log(res);
             console.log('Signed Up Successfully !');
             notify("Signed Up Successfully !", "success")
             navigate("/studentDashboard")
@@ -234,9 +232,11 @@ const Signup = ({ currUser, notify }) => {
                                             label="Hostel Name"
                                             onChange={(e) => setUserData({ ...userData, hostelName: e.target.value })}
                                         >
+                                            <MenuItem value={"Alaknanda Girls Hostel"}>Alaknanda Girls Hostel</MenuItem>
+                                            <MenuItem value={"Bhagirathi Girls Hostel"}>Bhagirathi Girls Hostel</MenuItem>
+                                            <MenuItem value={"Swami Vivekanand Boys Hostel"}>Swami Vivekanand Boys Hostel</MenuItem>
+                                            <MenuItem value={"Yammuna Girls Hostel"}>Yammuna Girls Hostel</MenuItem>
                                             <MenuItem value={"Sri Dev Suman Boys Hostel"}>Sri Dev Suman Boys Hostel</MenuItem>
-                                            <MenuItem value={"Swami Vivekananda Boys Hostel"}>Swami Vivekananda Boys Hostel</MenuItem>
-                                            <MenuItem value={"Forestry Boys Hostel"}>Forestry Boys Hostel</MenuItem>
                                         </Select>
                                     </FormControl>
                                 </Grid>

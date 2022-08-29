@@ -22,11 +22,13 @@ import Profile from "./Pages/Profile/Profile"
 import StudentDashboard from "./Pages/StudentDashboard/StudentDashboard"
 import OfficerDashboard from "./Pages/OfficerDashboard/OfficerDashboard"
 import AdminDashboard from "./Pages/AdminDashboard/AdminDashboard"
+import Hostels from "./Pages/Hostels/Hostels"
+import ContactUs from "./Pages/ContactUs/ContactUs"
+
 
 const App = () => {
   // USE STATE
   const [currUser, setCurrUser] = useState(null);
-  console.log(currUser)
 
   // toast message
   const notify = (msg, type) => toast(msg, {
@@ -68,6 +70,8 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home currUser={currUser} notify={notify} />} />
             <Route path="/allComplaints" element={<AllComplaints currUser={currUser} notify={notify} />} />
+            <Route path="/hostels" element={<Hostels currUser={currUser} notify={notify} />} />
+            <Route path="/contactus" element={<ContactUs currUser={currUser} notify={notify} />} />
             <Route path="/login" element={<Login currUser={currUser} notify={notify} />} />
             <Route path="/signup" element={<Signup currUser={currUser} notify={notify} />} />
             <Route path="/profile" element={<Profile currUser={currUser} notify={notify} />} />
