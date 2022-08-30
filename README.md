@@ -1,8 +1,10 @@
 # HNBGU Hostel Management Portal
 [Github Link](https://github.com/VisheshVGR/hnbgu_hostel_management_portal) | [See live](https://hnbgu-hostel-management-portal.vercel.app/)
-> Admin account details -
-> Email : visheshguptavgr10@gmail.com
-> Password : password
+```
+Admin account details -
+Email : visheshguptavgr10@gmail.com
+Password : password
+```
 ## Table of Contents 📕
 * [About the Challenge](#coderelay-2022)
 * [Tools And Technology](#tools-and-technology)
@@ -121,8 +123,8 @@
 
 
 # Database Schema
+* Users Schema
+<img height="500px" alt="Users Schema" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/db-users.png"> 
 
-
-|||
-|:-------------------------:|:-------------------------:|
-|<img width="1604" alt="Users Schema" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/db-users.png">  Users Schema |  <img width="1604" alt="Complaints Schema" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/db-complaints.png"> Complaints Schema |
+* Complaints Schema
+<img width="1604" alt="Complaints Schema" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/db-complaints.png">
