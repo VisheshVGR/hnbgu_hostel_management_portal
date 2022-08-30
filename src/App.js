@@ -1,7 +1,9 @@
 import React, { useState } from "react"
-import { Route, Routes, Outlet } from "react-router-dom"
+import { Route, Routes } from "react-router-dom"
 import { auth } from "./Firebase/firebaseConfig"
 import { onAuthStateChanged } from "firebase/auth";
+import { getDocs, collection, doc, updateDoc } from "firebase/firestore";
+import { db } from "./Firebase/firebaseConfig"
 
 // toast message
 import { ToastContainer, toast } from 'react-toastify';
@@ -51,6 +53,45 @@ const App = () => {
       setCurrUser(null)
     }
   });
+
+  const [allComplaints, setAllComplaints] = React.useState([])
+
+  React.useEffect(() => {
+    if (allComplaints.length > 0) {
+      allComplaints.forEach(async (comp) => {
+        if (new Date() - new Date(comp.issuedDate) > 604800000) {
+          const compRef = doc(db, "hnbgu_hostel_management_portal_complaints", comp.key);
+          if (comp.issuedTo === "Caretaker") {
+            await updateDoc(compRef, {
+              issuedTo: "Warden"
+            });
+          }
+          if (comp.issuedTo === "Warden") {
+            await updateDoc(compRef, {
+              issuedTo: "Chief Warden"
+            });
+          }
+        }
+      })
+    }
+  }, [allComplaints])
+
+  React.useEffect(() => {
+
+    const getData = async () => {
+      const querySnapshot = await getDocs(collection(db, "hnbgu_hostel_management_portal_complaints"));
+
+      const tempComp = []
+      querySnapshot.forEach((doc) => {
+        const data = { ...doc.data(), key: doc.id, issuedDate: doc.data().issuedDate.toDate() }
+        tempComp.push(data)
+      });
+      setAllComplaints(tempComp)
+    }
+
+    getData()
+
+  }, [])
 
   return (
     <>
