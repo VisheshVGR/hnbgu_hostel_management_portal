@@ -14,7 +14,7 @@ const Footer = () => {
                     px: 2,
                     mt: 'auto',
                     backgroundColor: "#131313",
-                    color:"white"
+                    color: "white"
                 }}
             >
                 <Container maxWidth="xl">
@@ -24,8 +24,14 @@ const Footer = () => {
                                 <GitHubIcon />
                             </IconButton>
                         </a>
-                        <Typography sx={{textAlign:"center"}}>
-                        HNBGU Hostel Management Portal<br />2022 &#169; All Rights Reserved
+                        <Box>
+                        <Typography  sx={{ cursor: "pointer", display:"inline-block", marginX:1 }} onClick={() => window.open("https://www.hnbgu.ac.in/home", '_blank')}>
+                        HNBGU site
+                        </Typography>
+
+                        </Box>
+                        <Typography sx={{ textAlign: "center" }}>
+                            HNBGU Hostel Management Portal<br />2022 &#169; All Rights Reserved
                         </Typography>
                     </Box>
                 </Container>

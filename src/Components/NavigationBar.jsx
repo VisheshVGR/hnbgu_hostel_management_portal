@@ -16,6 +16,7 @@ import PermContactCalendarIcon from '@mui/icons-material/PermContactCalendar';
 // import HowToRegIcon from '@mui/icons-material/HowToReg';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import favicon from "../Assets/HNBGUlogo.png"
+import digiIndia from "../Assets/digital-india.png"
 
 import PropTypes from 'prop-types';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
@@ -178,7 +179,7 @@ const Header = ({ currUser }, props) => {
                                     </Typography>
 
                                 </Box>
-
+                                <Box component="img" src={digiIndia} alt="Digital India Logo" sx={{ marginLeft: "auto", height: "100px", padding: "10px", display: { xs: "none", md: "block" }, }} />
                             </Toolbar>
                         </Container>
                     </AppBar>
@@ -201,31 +202,31 @@ const Header = ({ currUser }, props) => {
 
                                 <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                                     <Button
-                                        sx={{ my: 2, color: 'white', display: 'flex', alignItems:"center" }}
+                                        sx={{ my: 2, color: 'white', display: 'flex', alignItems: "center" }}
                                         onClick={() => navigate("/")}
                                     >
-                                        <HomeIcon sx={{marginRight:1}}/>
+                                        <HomeIcon sx={{ marginRight: 1 }} />
                                         Home
                                     </Button>
                                     <Button
-                                        sx={{ my: 2, color: 'white', display: 'flex', alignItems:"center" }}
+                                        sx={{ my: 2, color: 'white', display: 'flex', alignItems: "center" }}
                                         onClick={() => navigate("/allComplaints")}
                                     >
-                                        <ReportIcon sx={{marginRight:1}}/>
+                                        <ReportIcon sx={{ marginRight: 1 }} />
                                         All Complaints
                                     </Button>
                                     <Button
-                                        sx={{ my: 2, color: 'white', display: 'flex', alignItems:"center" }}
+                                        sx={{ my: 2, color: 'white', display: 'flex', alignItems: "center" }}
                                         onClick={() => navigate("/hostels")}
                                     >
-                                        <BedIcon sx={{marginRight:1}}/>
+                                        <BedIcon sx={{ marginRight: 1 }} />
                                         Hostels
                                     </Button>
                                     <Button
-                                        sx={{ my: 2, color: 'white', display: 'flex', alignItems:"center" }}
+                                        sx={{ my: 2, color: 'white', display: 'flex', alignItems: "center" }}
                                         onClick={() => navigate("/contactus")}
                                     >
-                                        <PermContactCalendarIcon sx={{marginRight:1}}/>
+                                        <PermContactCalendarIcon sx={{ marginRight: 1 }} />
                                         Contact Us
                                     </Button>
                                 </Box>

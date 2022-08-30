@@ -182,22 +182,22 @@ const SimpleSlider = () => {
     return (
         <Slider {...settings} >
             <div>
-                <img src={img2} alt="" style={{ width: "100%", height: "60vh" }} />
+                <img src={img2} alt="" style={{ width: "100%", height: "70vw", maxHeight:"60vh" }} />
             </div>
             <div>
-                <img src={img5} alt="" style={{ width: "100%", height: "60vh" }} />
+                <img src={img5} alt="" style={{ width: "100%", height: "70vw", maxHeight:"60vh"}} />
             </div>
             <div>
-                <img src={img6} alt="" style={{ width: "100%", height: "60vh" }} />
+                <img src={img6} alt="" style={{ width: "100%", height: "70vw", maxHeight:"60vh"}} />
             </div>
             <div>
-                <img src={img1} alt="" style={{ width: "100%", height: "60vh" }} />
+                <img src={img1} alt="" style={{ width: "100%", height: "70vw", maxHeight:"60vh"}} />
             </div>
             <div>
-                <img src={img3} alt="" style={{ width: "100%", height: "60vh" }} />
+                <img src={img3} alt="" style={{ width: "100%", height: "70vw", maxHeight:"60vh"}} />
             </div>
             <div>
-                <img src={img4} alt="" style={{ width: "100%", height: "60vh" }} />
+                <img src={img4} alt="" style={{ width: "100%", height: "70vw", maxHeight:"60vh"}} />
             </div>
         </Slider>
     );

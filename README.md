@@ -48,6 +48,7 @@ Password : password
 * Personalized background UI of student's respective hostel on Signup, Student Dashboard and Profile page implementing personalization.
 * Strict security rules with proper feedback messages using react-toastify.
 * Responsive website with accessibility features.
+* Implement chat with HNBGU - Helpdesk for any queries
 * If officers 1 and 2 are not able to resolve this within 7 days, the complaint request will be promoted automatically to the next officer.
 * Officer can send out new Notification / Circullars which is shown on Home Page.
 
