@@ -120,7 +120,7 @@ export default function ResponsiveDialog({ complaintData, myinfo, notify }) {
                             value={remarks}
                             onChange={(e) => setRemarks(e.target.value)}
                         />
-                        <Button variant="contained" color="success" onClick={async () => {await updateDoc(complainRef, { remarks: remarks }); notify("Remarks saved!", "info")}}>
+                        <Button variant="contained" color="success" onClick={async () => { await updateDoc(complainRef, { remarks: remarks }); setRemarks(""); notify("Remarks saved!", "info") }}>
                             Save Remarks
                         </Button>
 

@@ -47,6 +47,7 @@
 * Strict security rules with proper feedback messages using react-toastify.
 * Responsive website with accessibility features.
 * If officers 1 and 2 are not able to resolve this within 7 days, the complaint request will be promoted automatically to the next officer.
+* Officer can send out new Notification / Circullars which is shown on Home Page.
 
 ## Data Table Used
 * It is used to display data in the form of table.
@@ -68,6 +69,7 @@
     * Officer can set status of complaint as - Resolved, Pending, Declined.
     * Caretaker can esclate complaint to Warden and Warden can esclate complaint to Chief Warden.
     * Officer can add remarks for each complaints with additional information.
+* Officer can add / delete Notification / Circulars from dashboard which is shown at Home Page. 
 
 ## Admin Dashboard
 * Admin Data Table features all account details.
@@ -83,9 +85,11 @@
 
 ### Home Page
 * It is the home page of our website with basic information.
+* It features Notification / Circulars section with latest updates from Officers.
 
 ### Hostels
 * It has information about various hostel available at HNBGU.
+* Visitor can click on particular hostel to get details about it.
 
 ### Contact Us
 * It contains information regarding contacts of HNBGU Hostels Officers.
@@ -111,7 +115,8 @@
 <img width="1604" alt="Signup Page" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/Signup.png"> Signup Page| <img width="1604" alt="Profile Page" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/Profile.png"> Profile Page |
 <img width="1604" alt="Student Dashboard (Register Complaint)" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/Student-1.png"> Student Dashboard (Register Complaint) | <img width="1604" alt="Student Dashboard (My Complaints)" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/Student-2.png"> Student Dashboard (My Complaints)|
 <img width="1604" alt="Student Dashboard (info dialog box)" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/Student-info.png"> Student Dashboard (info dialog box) | <img width="1604" alt="Officer Dashboard" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/Officer.png"> Officer Dashboard|
-<img width="1604" alt="Officer Dashboard (info dialog box)" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/Officer-info.png"> Officer Dashboard (info dialog box) | <img width="1604" alt="Admin Dashboard" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/Admin.png"> Admin Dashboard|
+<img width="1604" alt="Officer Dashboard (info dialog box)" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/Officer-info.png"> Officer Dashboard (info dialog box)|
+<img width="1604" alt="Officer Dashboard Notification Panel" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/Officer-notification.png"> Officer Dashboard Notification Panel | <img width="1604" alt="Admin Dashboard" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/Admin.png"> Admin Dashboard|
 <img width="1604" alt="Admin Dashboard (info dialog box)" src="https://raw.githubusercontent.com/VisheshVGR/hnbgu_hostel_management_portal/main/Gallery/Admin-info.png"> Admin Dashboard (info dialog box) |
 
 

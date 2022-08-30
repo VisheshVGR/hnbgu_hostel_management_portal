@@ -1,4 +1,7 @@
 import React from "react"
+import { collection, query, onSnapshot } from "firebase/firestore";
+import { db } from "../../Firebase/firebaseConfig"
+
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -8,6 +11,12 @@ import { Paper, Typography } from "@mui/material"
 import { useNavigate } from "react-router-dom"
 import ReportIcon from '@mui/icons-material/Report';
 import Face6Icon from '@mui/icons-material/Face6';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import Divider from '@mui/material/Divider';
+import ListItemText from '@mui/material/ListItemText';
+import Grid from '@mui/material/Grid';
+import NotificationsIcon from '@mui/icons-material/Notifications';
 // carousel images
 import img1 from "../../Assets/car/carimg1.png"
 import img2 from "../../Assets/car/carimg2.jpg"
@@ -47,53 +56,63 @@ const Home = () => {
                     </Button>
                 </Box>
 
-                <Box sx={{ padding: 4 }}>
+                <Grid container spacing={2}>
+                    <Grid item xs={12} md={4}>
+                        <SideNotification />
 
-                    <Typography variant="h4" sx={{ marginBottom: 3, textDecoration: "underline", textAlign: "center" }}>
-                        Instruction to Applicants
-                    </Typography>
-                    <ul>
-                        <li>
-                            <Typography variant="body1" sx={{ marginBottom: 3 }}>
+                    </Grid>
+                    <Grid item xs={12} md={8}>
+                        <Box sx={{ padding: 4 }}>
 
-                                Candidate should have a valid Email id and Mobile number. Applicant have to enter all the education qualifications and upload photo and signature. Pay application fee online.
+                            <Typography variant="h4" sx={{ marginBottom: 3, textDecoration: "underline", textAlign: "center" }}>
+                                Instruction to Applicants
                             </Typography>
-                        </li>
-                        <li>
-                            <Typography variant="body1" sx={{ marginBottom: 3 }}>
+                            <ul>
+                                <li>
+                                    <Typography variant="body1" sx={{ marginBottom: 3 }}>
 
-                                Admission is restricted to full time regular students of the various University deparments of study and research.
-                            </Typography>
-                        </li>
-                        <li>
-                            <Typography variant="body1" sx={{ marginBottom: 3 }}>
+                                        Candidate should have a valid Email id and Mobile number. Applicant have to enter all the education qualifications and upload photo and signature. Pay application fee online.
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography variant="body1" sx={{ marginBottom: 3 }}>
 
-                                Applicants who got allotment should download "Allotment Memo" after remitting the fee due to University through the online payment gate way. Only those candidates who remit the fee due to University (SC/ST candidates – Rs 50/-, Others – Rs. 620/- ) shall be able to download the allotment memo. The allotment memo can be downloaded by clicking on the link "Click here to print your Allotment Memo" and should be produced before university when taking admission.
-                            </Typography>
-                        </li>
-                        <li>
-                            <Typography variant="body1" sx={{ marginBottom: 3 }}>
+                                        Admission is restricted to full time regular students of the various University deparments of study and research.
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography variant="body1" sx={{ marginBottom: 3 }}>
 
-                                The students should report in the University on or before date mensioned in the memo and should produce the documents for verification.
-                            </Typography>
-                        </li>
-                        <li>
-                            <Typography variant="body1" sx={{ marginBottom: 3 }}>
+                                        Applicants who got allotment should download "Allotment Memo" after remitting the fee due to University through the online payment gate way. Only those candidates who remit the fee due to University (SC/ST candidates – Rs 50/-, Others – Rs. 620/- ) shall be able to download the allotment memo. The allotment memo can be downloaded by clicking on the link "Click here to print your Allotment Memo" and should be produced before university when taking admission.
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography variant="body1" sx={{ marginBottom: 3 }}>
 
-                                Failure to report for admission by candidate in the allotted hostel at the stipulated time and date will result in the forfeiture of his/her chance for admission to hostel.
-                            </Typography>
-                        </li>
-                        <li>
-                            <Typography variant="body1" sx={{ marginBottom: 3 }}>
+                                        The students should report in the University on or before date mensioned in the memo and should produce the documents for verification.
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography variant="body1" sx={{ marginBottom: 3 }}>
 
-                                The allotment is done solely based on the details given by the candidate in online application. Any discrepancy in the online details furnished by the candidates with the original documents submitted at the time of admissions will lead to the cancellation of allotment.
-                            </Typography>
-                        </li>
+                                        Failure to report for admission by candidate in the allotted hostel at the stipulated time and date will result in the forfeiture of his/her chance for admission to hostel.
+                                    </Typography>
+                                </li>
+                                <li>
+                                    <Typography variant="body1" sx={{ marginBottom: 3 }}>
 
-                    </ul>
+                                        The allotment is done solely based on the details given by the candidate in online application. Any discrepancy in the online details furnished by the candidates with the original documents submitted at the time of admissions will lead to the cancellation of allotment.
+                                    </Typography>
+                                </li>
+
+                            </ul>
+
+                        </Box>
+                    </Grid>
+
+                </Grid>
 
 
-                </Box>
             </Paper>
 
 
@@ -103,6 +122,50 @@ const Home = () => {
 
 export default Home
 
+
+const SideNotification = () => {
+    const [allNotifications, setAllNotifications] = React.useState([])
+    React.useEffect(() => {
+        const q = query(collection(db, "hnbgu_hostel_management_portal_notifications"));
+        const unsubscribe = onSnapshot(q, (querySnapshot) => {
+            let tempNotific = []
+            querySnapshot.forEach((doc) => {
+                tempNotific.push({ ...doc.data(), key: doc.id });
+            });
+            setAllNotifications(tempNotific)
+        });
+
+        return (() => {
+            unsubscribe()
+        })
+    }, [])
+    return (
+        <>
+            <Paper elevation={2} sx={{ margin: 2, bgcolor: "#008336" }}>
+                <Typography variant="h6" sx={{ padding: 2, color: "white", display: 'flex', alignItems: "center", justifyContent: "center" }}>
+                    <NotificationsIcon sx={{ marginRight: 1 }} />Notification / Circulars
+                </Typography>
+                <List component="marquee" direction="up" sx={{ width: '100%', height: "300px", bgcolor: 'background.paper' }}>
+                    {
+                        allNotifications.map((notific) => {
+                            return (
+                                <>
+                                    <ListItem>
+                                        <ListItemText
+                                            primary={notific.notification}
+                                        />
+                                    </ListItem>
+                                    <Divider component="li" />
+                                </>
+                            )
+                        })
+                    }
+
+                </List>
+            </Paper>
+        </>
+    )
+}
 
 const SimpleSlider = () => {
     let settings = {
