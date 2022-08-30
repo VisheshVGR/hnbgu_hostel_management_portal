@@ -45,8 +45,6 @@ const App = () => {
 
   onAuthStateChanged(auth, async (user) => {
     if (user) {
-      // const q = query(collection(db, "hnbgu_hostel_management_portal_users"), where("uid", "==", user.uid));
-
       setCurrUser(user)
 
     } else {

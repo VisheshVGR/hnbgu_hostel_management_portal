@@ -1,6 +1,5 @@
 import React from "react"
 import { Paper } from "@mui/material"
-import { Grid, Typography, Box, Tab } from "@mui/material";
 
 import ComplaintsTable from "./ComplaintsTable"
 
