@@ -33,7 +33,7 @@ Password : password
 	    * For Administration
 	        1. The website will have the same interface with the only difference being for the complaint section. 
             2. The admin can see the complaints lodged by students.
-	* Detailed View of the Problem Statement can be found [here](https://drive.google.com/file/d/1HLIcM1jE_TwxM7tiwRn-yQ41rGXy6Q3K/view?usp=sharing)
+	* Detailed View of all the Problem Statement can be found [here](https://drive.google.com/file/d/1HLIcM1jE_TwxM7tiwRn-yQ41rGXy6Q3K/view?usp=sharing)
 
 # Tools and Technology
 * The Front-end is created in **React.js** and **Material UI**. 
